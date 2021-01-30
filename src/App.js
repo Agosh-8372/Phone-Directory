@@ -3,19 +3,25 @@ import Header from "./Header.js";
 import "./App.css";
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state ={
+      subscriberListToShow: []
+    }
+  }
   render() {
-    let subscribers = [
-      {
-        id:1,
-        name:"Naveen",
-        phone:"1234567899"
-      },
-      {
-        id:2,
-        name:"Agosh",
-        phone:"7827894449"
-      },
-    ]
+    // let subscribers = [
+    //   {
+    //     id:1,
+    //     name:"Naveen",
+    //     phone:"1234567899"
+    //   },
+    //   {
+    //     id:2,
+    //     name:"Agosh",
+    //     phone:"7827894449"
+    //   },
+    // ]
     return(
       <div>
       <Header heading="phone directory"/>
@@ -26,7 +32,7 @@ class App extends Component {
           <span className="grid-item phone-heading">Phone</span>
           </div>
           {
-            subscribers.map(item =>{
+            this.state.subscriberListToShow.map(item =>{
               return <div key={item.id} className="grid-container">
               <span className="grid-item">{item.name}</span>
               <span className="grid-item">{item.phone}</span>
